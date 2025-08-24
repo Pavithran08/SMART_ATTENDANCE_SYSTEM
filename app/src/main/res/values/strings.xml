@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Smart Attendance System</string>
+    <string name="login_button">Log In</string>
+    <string name="register_button">Register</string>
+    <string name="logo">Logo</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+
+    <string-array name="roles_array">
+        <item>Select Role</item> <!-- Default item -->
+        <item>Student</item>
+        <item>Admin</item>
+        <item>Lecturer</item>
+    </string-array>
+</resources>

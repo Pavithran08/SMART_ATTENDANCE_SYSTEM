@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_main"
+    tools:context=".VerifyActivity">
+
+    <!-- App Title (Consistent with other screens) -->
+<TextView
+android:id="@+id/verifyAppTitle"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Verify Your Identity"
+android:textColor="@color/title_text_color"
+android:textSize="32sp"
+android:textStyle="bold"
+android:layout_marginTop="64dp"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card for Camera Preview and Verification Result -->
+<androidx.cardview.widget.CardView
+android:id="@+id/verifyCard"
+android:layout_width="0dp"
+android:layout_height="0dp"
+android:layout_marginStart="32dp"
+android:layout_marginEnd="32dp"
+android:layout_marginTop="32dp"
+android:layout_marginBottom="24dp"
+app:cardCornerRadius="20dp"
+app:cardElevation="12dp"
+app:cardBackgroundColor="@android:color/white"
+app:layout_constraintTop_toBottomOf="@id/verifyAppTitle"
+app:layout_constraintBottom_toTopOf="@id/btn_verify"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:ignore="MissingConstraints">
+
+    <!-- Camera Preview -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Verification Result Text -->
+    <TextView
+        android:id="@+id/txt_verification_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ready to verify"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@color/secondary_text_color"
+        android:textStyle="bold"
+        android:paddingVertical="8dp" />
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>
+
+    <!-- Verify Button -->
+<Button
+android:id="@+id/btn_verify"
+android:layout_width="0dp"
+android:layout_height="56dp"
+    android:layout_marginStart="64dp"
+    android:layout_marginEnd="64dp"
+    android:layout_marginBottom="48dp"
+    android:text="Verify Face"
+    android:textColor="@android:color/white"
+    android:background="@drawable/button_gradient_bg"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:stateListAnimator="@null"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Loading Spinner for VerifyActivity -->
+<ProgressBar
+android:id="@+id/loading_spinner_verify"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:visibility="gone"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+tools:visibility="visible" /> <!-- tools:visibility for design time preview -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

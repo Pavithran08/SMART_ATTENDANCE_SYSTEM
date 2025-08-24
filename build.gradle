@@ -1,0 +1,28 @@
+
+buildscript {
+    repositories {
+        google()  // Ensure this repository is included
+        mavenCentral() // Add mavenCentral() as well, it's often needed for other plugins
+    }
+    dependencies {
+        // Update to the latest stable version. As of June 2025, 4.4.1 is current.
+        // Always check Firebase documentation for the absolute latest if you face issues.
+        classpath 'com.google.gms:google-services:4.4.1'
+
+        // If you are using Firebase Crashlytics, you might also need this:
+        // classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.9' // Check for latest here too
+    }
+}
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    // You are using 'alias(libs.plugins.android.application) apply false'
+    // and 'alias(libs.plugins.google.gms.google.services) apply false'
+    // This indicates you are using Gradle Version Catalogs (libs.plugins)
+    // which is the modern way to manage plugins. This part looks correct.
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.google.gms.google.services) apply false
+    // If you uncommented Crashlytics in app/build.gradle, ensure its plugin is also here:
+    // alias(libs.plugins.google.firebase.crashlytics) apply false
+}
+

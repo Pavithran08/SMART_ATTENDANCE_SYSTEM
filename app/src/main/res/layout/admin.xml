@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_main"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    tools:context=".AdminActivity">
+
+    <!-- App Title (Consistent with other screens) -->
+
+    <!-- User Management Card View -->
+
+    <TextView
+        android:id="@+id/adminAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Admin Dashboard"
+        android:textColor="@color/title_text_color"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+android:id="@+id/usersCard"
+android:layout_width="0dp"
+android:layout_height="0dp"
+android:layout_marginStart="24dp"
+android:layout_marginEnd="24dp"
+android:layout_marginTop="32dp"
+android:layout_marginBottom="16dp"
+app:cardCornerRadius="20dp"
+app:cardElevation="12dp"
+app:cardBackgroundColor="@android:color/white"
+app:layout_constraintTop_toBottomOf="@id/adminAppTitle"
+app:layout_constraintBottom_toTopOf="@id/bottom_navigation_container"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/tvAdminDashboardTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User List"
+        android:textSize="20sp"
+        android:textColor="@color/title_text_color"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal" />
+
+    <ProgressBar
+        android:id="@+id/progressBarAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewUsers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="8dp"
+    tools:listitem="@layout/item_user" />
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>
+
+    <!-- Bottom Navigation -->
+<LinearLayout
+android:id="@+id/bottom_navigation_container"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:gravity="center"
+android:paddingVertical="8dp"
+android:background="@android:color/white"
+android:elevation="8dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+tools:ignore="MissingConstraints">
+
+<ImageButton
+    android:id="@+id/backButton"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:background="?android:attr/selectableItemBackgroundBorderless"
+    android:contentDescription="Back"
+    android:src="@drawable/ic_back"
+    android:padding="8dp"
+    app:tint="@android:color/black" /> <!-- Explicit tint for visibility -->
+
+<ImageButton
+    android:id="@+id/homeButton"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="16dp"
+    android:background="?android:attr/selectableItemBackgroundBorderless"
+    android:contentDescription="Home"
+    android:src="@drawable/ic_home"
+    android:padding="8dp"
+    app:tint="@android:color/black" /> <!-- Explicit tint for visibility -->
+
+<ImageButton
+    android:id="@+id/profileButton"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="16dp"
+    android:background="?android:attr/selectableItemBackgroundBorderless"
+    android:contentDescription="Profile"
+    android:src="@drawable/ic_profile"
+    android:padding="8dp"
+    app:tint="@android:color/black" />
+
+    <!-- Explicit tint for visibility -->
+</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="Add New User"
+        android:focusable="true"
+        app:backgroundTint="@color/blue_color"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:tint="@android:color/white"
+        tools:layout_editor_absoluteX="331dp"
+        tools:layout_editor_absoluteY="64dp"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Floating Action Button (Moved to the end to ensure it draws on top) -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

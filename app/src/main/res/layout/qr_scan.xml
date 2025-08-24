@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_main"
+    tools:context=".QrScanActivity">
+
+    <!-- App Title (Consistent with other screens) -->
+<TextView
+android:id="@+id/qrScanAppTitle"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="QR Code Scan"
+android:textColor="@color/title_text_color"
+android:textSize="32sp"
+android:textStyle="bold"
+android:layout_marginTop="64dp"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- QR Code Scan Box within a CardView -->
+<androidx.cardview.widget.CardView
+android:id="@+id/qrScanCard"
+android:layout_width="0dp"
+android:layout_height="300dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginTop="48dp"
+    android:layout_marginBottom="24dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="12dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:layout_constraintTop_toBottomOf="@id/qrScanAppTitle"
+    app:layout_constraintBottom_toTopOf="@id/btn_scan_qr"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintVertical_bias="0.4"
+    app:layout_constraintDimensionRatio="H,1:1"
+    tools:ignore="MissingConstraints">
+
+<FrameLayout
+android:id="@+id/qrScanBox"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_gravity="center"
+android:background="@drawable/edit_text_rounded_bg"
+    android:padding="8dp">
+
+    <!-- Placeholder for QR Code Camera Feed (or actual CameraView here) -->
+<TextView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="center"
+android:text="Camera Feed for QR Scan"
+android:textColor="@color/secondary_text_color"
+android:textSize="18sp"
+android:textStyle="italic"
+tools:visibility="visible" />
+    </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Scan QR Code Button -->
+<Button
+android:id="@+id/btn_scan_qr"
+android:layout_width="0dp"
+android:layout_height="56dp"
+    android:layout_marginStart="64dp"
+    android:layout_marginEnd="64dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginBottom="48dp"
+    android:text="Scan QR Code"
+    android:textColor="@android:color/white"
+    android:background="@drawable/button_gradient_bg"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:stateListAnimator="@null"
+    app:layout_constraintTop_toBottomOf="@id/qrScanCard"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Back Button (positioned at the top-left, outside the card) -->
+<ImageButton
+android:id="@+id/backButton"
+android:layout_width="50dp"
+android:layout_height="50dp"
+android:background="?android:attr/selectableItemBackgroundBorderless"
+android:contentDescription="Back"
+android:src="@drawable/ic_back"
+android:padding="8dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    app:tint="@color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

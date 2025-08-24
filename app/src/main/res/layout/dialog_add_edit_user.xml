@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@android:color/white"> <!-- Explicit background for the dialog content -->
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add/Edit User"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/title_text_color"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_horizontal" />
+
+    <!-- User ID (Document ID from Firestore) Display - Visible only when editing existing user -->
+    <TextView
+        android:id="@+id/tvDocumentIdDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Document ID: [Loading...]"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <!-- User ID Input Field (This is the custom userID field) -->
+    <EditText
+        android:id="@+id/etUserId"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="User ID (e.g., A0001, B12345)"
+        android:inputType="textNoSuggestions"
+        android:background="@drawable/edit_text_rounded_bg"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColorHint="@color/text_hint_light"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:background="@drawable/edit_text_rounded_bg"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColorHint="@color/text_hint_light"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edit_text_rounded_bg"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColorHint="@color/text_hint_light"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Matric Number / Staff ID Field - Will be auto-populated with User ID for new users -->
+    <EditText
+        android:id="@+id/etMatricStaffId"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="Matric Number / Staff ID (Auto-filled for new users)"
+        android:inputType="text"
+        android:background="@drawable/edit_text_rounded_bg"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColorHint="@color/text_hint_light"
+        android:layout_marginBottom="16dp" />
+
+    <!-- New Role Input Field -->
+    <EditText
+        android:id="@+id/etRole"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="Role (e.g., Student, Lecturer, Admin)"
+        android:inputType="textCapWords"
+        android:background="@drawable/edit_text_rounded_bg"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColorHint="@color/text_hint_light"
+        android:layout_marginBottom="16dp" />
+
+    <!-- New Password Input Field -->
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:background="@drawable/edit_text_rounded_bg"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColorHint="@color/text_hint_light"
+        android:layout_marginBottom="32dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:text="Cancel"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/edit_text_rounded_bg"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:stateListAnimator="@null"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:text="Save"
+            android:background="@drawable/button_gradient_bg"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:stateListAnimator="@null"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp" />
+    </LinearLayout>
+
+</LinearLayout>

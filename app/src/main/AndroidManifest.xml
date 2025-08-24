@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.smartattendancesystem">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE are deprecated in Android 11 (API 30)
+         and have reduced scope in Android 10+. Consider using MediaStore API for files.
+         maxSdkVersion attribute limits these permissions to Android 12 (API 32) and below. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Optional for vibrations on failure -->
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Smartattendancesystem"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <!-- SplashScreenActivity: MUST be exported="true" because it has LAUNCHER intent-filter -->
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- MainActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- LoginActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- RegisterActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- SuccessActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".SuccessActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- StudentActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".StudentActivity"
+            android:exported="false"
+            tools:ignore="Instantiatable">
+        </activity>
+
+        <!-- QR Code Scanning Activities -->
+        <activity
+            android:name=".QrScanActivity"
+            android:stateNotNeeded="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="android:screenOrientation"/>
+
+        <activity android:name=".LecturerChooseClassActivity" />
+        <activity android:name=".UlearnRegistrationActivity" />
+        <activity android:name=".GenerateQrCodeActivity" />
+
+        <!-- ProfileActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- LecturerActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".LecturerActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- LecturerProfileActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".LecturerProfileActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- QR Code Display Activity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".QrDisplayActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".DisplayDetailActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".ViewAttendanceActivity"
+            android:exported="false">
+        </activity>
+
+        <activity android:name=".QrUploadManualActivity" />
+
+
+
+        <!-- QR Code Generation Activity: Set exported="false" as it doesn't have an intent-filter -->
+
+        <!-- VerifyActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".VerifyActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- VerificationSuccessActivity: Set exported="false" as it doesn't have an intent-filter -->
+        <activity
+            android:name=".VerificationSuccessActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- AttendanceActivity: MUST be exported="true" because it has a VIEW intent-filter (deep link) -->
+        <activity android:name=".AttendanceActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="yourapp" android:host="attendance_form" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>
+

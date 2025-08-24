@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_main"
+    tools:context=".AttendanceActivity">
+
+    <!-- App Title (Consistent with other screens) -->
+<TextView
+android:id="@+id/attendanceSuccessAppTitle"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Smart Attendance"
+android:textColor="@color/title_text_color"
+android:textSize="32sp"
+android:textStyle="bold"
+android:layout_marginTop="64dp"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Success Card View -->
+<androidx.cardview.widget.CardView
+android:id="@+id/successCard"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginStart="32dp"
+android:layout_marginEnd="32dp"
+android:layout_marginTop="48dp"
+android:layout_marginBottom="24dp"
+app:cardCornerRadius="20dp"
+app:cardElevation="12dp"
+app:cardBackgroundColor="@android:color/white"
+app:layout_constraintTop_toBottomOf="@id/attendanceSuccessAppTitle"
+app:layout_constraintBottom_toTopOf="@id/btn_scan"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintVertical_chainStyle="packed"
+app:layout_constraintVertical_bias="0.4">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    tools:ignore="MissingConstraints">
+
+    <!-- Success Icon (Checkmark) -->
+    <ImageView
+        android:id="@+id/success_icon"
+        android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:src="@drawable/attendance_success"
+    android:contentDescription="Attendance Success Icon"
+    android:layout_marginBottom="24dp"
+        android:background="@drawable/circular_image_bg"
+    android:padding="16dp" />
+
+    <!-- Success Message -->
+    <TextView
+        android:id="@+id/success_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Attendance Marked Successfully!"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Optional: Sub Message -->
+    <TextView
+        android:id="@+id/success_sub_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Your attendance has been recorded."
+        android:textColor="@color/secondary_text_color"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>
+
+    <!-- Next Button to Proceed -->
+<Button
+android:id="@+id/btn_scan"
+android:layout_width="0dp"
+android:layout_height="56dp"
+    android:layout_marginStart="64dp"
+    android:layout_marginEnd="64dp"
+    android:layout_marginTop="24dp"
+    android:text="Next"
+    android:textColor="@android:color/white"
+    android:background="@drawable/button_gradient_bg"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:stateListAnimator="@null"
+    app:layout_constraintTop_toBottomOf="@id/successCard"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/navigationButtons"
+    app:layout_constraintVertical_bias="0.0" /> <!-- Pin to the top of its chain -->
+
+    <!-- Bottom Navigation Bar -->
+<LinearLayout
+android:id="@+id/navigationButtons"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:gravity="center"
+android:orientation="horizontal"
+android:paddingVertical="8dp"
+android:background="@android:color/white"
+android:elevation="8dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+tools:ignore="MissingConstraints">
+
+<!-- Back Button -->
+<ImageButton
+    android:id="@+id/backButton"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:background="?android:attr/selectableItemBackgroundBorderless"
+    android:contentDescription="Back"
+    android:src="@drawable/ic_back"
+    android:padding="8dp"
+    app:tint="@android:color/black" />
+
+<!-- Home Button -->
+<ImageButton
+    android:id="@+id/homeButton"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="16dp"
+    android:background="?android:attr/selectableItemBackgroundBorderless"
+    android:contentDescription="Home"
+    android:src="@drawable/ic_home"
+    android:padding="8dp"
+    app:tint="@android:color/black" />
+
+<!-- Profile Button -->
+<ImageButton
+    android:id="@+id/profileButton"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="16dp"
+    android:background="?android:attr/selectableItemBackgroundBorderless"
+    android:contentDescription="Profile"
+    android:src="@drawable/ic_profile"
+    android:padding="8dp"
+    app:tint="@android:color/black" />
+</LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
